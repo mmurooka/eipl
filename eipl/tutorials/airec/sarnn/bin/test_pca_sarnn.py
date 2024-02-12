@@ -48,6 +48,7 @@ model = SARNN(
     k_dim=params["k_dim"],
     heatmap_size=params["heatmap_size"],
     temperature=params["temperature"],
+    im_size=[128, 128]
 )
 
 # If trained with torch.compile, comment out the following code.

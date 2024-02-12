@@ -44,7 +44,7 @@ idx = int(args.idx)
 minmax = [params["vmin"], params["vmax"]]
 grasp_data = SampleDownloader("airec", "grasp_bottle", img_format="HWC")
 _images, _joints = grasp_data.load_raw_data("test")
-_images = resize_img(_images, (64, 64))
+_images = resize_img(_images, (128, 128))
 images = _images[idx]
 joints = _joints[idx]
 joint_bounds = grasp_data.joint_bounds
@@ -62,6 +62,7 @@ model = SARNN(
     k_dim=params["k_dim"],
     heatmap_size=params["heatmap_size"],
     temperature=params["temperature"],
+    im_size=[128, 128]
 )
 
 if params["compile"]:
