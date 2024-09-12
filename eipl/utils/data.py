@@ -22,7 +22,8 @@ def normalization(data, indataRange, outdataRange):
     Return:
         data (np.array): Normalized data array
     """
-    data = (data - indataRange[0]) / (indataRange[1] - indataRange[0])
+    eps = 1e-6
+    data = (data - indataRange[0]) / (indataRange[1] - indataRange[0] + eps)
     data = data * (outdataRange[1] - outdataRange[0]) + outdataRange[0]
     return data
 
